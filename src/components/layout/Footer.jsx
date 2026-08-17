@@ -16,7 +16,7 @@ export default function Footer() {
   const socialLinks = [
     {
       label: 'Facebook',
-      href: '#',
+      href: 'https://www.facebook.com',
       icon: (
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -25,7 +25,7 @@ export default function Footer() {
     },
     {
       label: 'Twitter',
-      href: '#',
+      href: 'https://twitter.com',
       icon: (
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
           <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
@@ -34,7 +34,7 @@ export default function Footer() {
     },
     {
       label: 'Instagram',
-      href: '#',
+      href: 'https://www.instagram.com',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -45,7 +45,7 @@ export default function Footer() {
     },
     {
       label: 'LinkedIn',
-      href: '#',
+      href: 'https://www.linkedin.com',
       icon: (
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -81,8 +81,10 @@ export default function Footer() {
                 <a
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#DF8435] text-gray-300 hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_15px_rgba(223,132,53,0.6)] hover:rotate-6 border border-white/5"
+                  className="w-9 h-9 rounded-full bg-white text-[#DF8435] hover:bg-[#DF8435] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md font-bold text-xs transform hover:-translate-y-1.5 hover:rotate-6 hover:shadow-[0_0_15px_rgba(223,132,53,0.7)]"
                 >
                   {s.icon}
                 </a>
