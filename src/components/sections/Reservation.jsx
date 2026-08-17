@@ -98,25 +98,25 @@ export default function Reservation({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto animate-fade-in">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-lg overflow-y-auto animate-fade-in">
       
       {/* Background click to close overlay */}
-      <div className="fixed inset-0" onClick={handleCloseAll} />
+      <div className="fixed inset-0" onClick={handleCloseAll} aria-hidden="true" />
 
       {/* Modal Card */}
-      <div className="relative w-full max-w-4xl bg-[#10171B] border border-[#DF8435]/30 rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.9)] p-6 sm:p-10 my-8 z-10 animate-scale-in max-h-[92vh] overflow-y-auto">
+      <div className="relative w-full max-w-4xl bg-[#10171B] border border-[#DF8435]/40 rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.95)] p-6 sm:p-10 my-8 z-10 animate-scale-in max-h-[90vh] overflow-y-auto">
         
         {/* Close Button */}
         <button
           onClick={handleCloseAll}
-          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-[#DF8435] text-gray-300 hover:text-white flex items-center justify-center transition-all duration-300 hover:rotate-90 text-sm cursor-pointer z-20"
+          className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-[#DF8435] text-gray-300 hover:text-white flex items-center justify-center transition-all duration-300 hover:rotate-90 text-base font-bold cursor-pointer z-20 shadow-md"
           aria-label="Close modal"
         >
           ✕
         </button>
 
         {/* Modal Header */}
-        <div className="text-center mb-8 pr-6 sm:pr-0">
+        <div className="text-center mb-8 pr-8 sm:pr-0">
           <div className="inline-flex flex-col items-center gap-1 mb-2">
             <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-[#DF8435] uppercase">
               TABLE RESERVATION
@@ -380,9 +380,18 @@ export default function Reservation({ isOpen, onClose }) {
 
       {/* Confirmation Receipt Modal */}
       {confirmedBooking && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg animate-fade-in">
-          <div className="bg-[#11181C] max-w-md w-full rounded-2xl border border-[#DF8435]/40 shadow-[0_20px_60px_rgba(0,0,0,0.9)] p-6 sm:p-8 relative text-center animate-scale-in">
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl animate-fade-in">
+          <div className="bg-[#11181C] max-w-md w-full rounded-2xl border border-[#DF8435]/40 shadow-[0_20px_60px_rgba(0,0,0,0.95)] p-6 sm:p-8 relative text-center animate-scale-in">
             
+            {/* Close Modal Button on receipt */}
+            <button
+              onClick={handleCloseAll}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-[#DF8435] text-gray-300 hover:text-white flex items-center justify-center transition-all duration-200 text-sm font-bold cursor-pointer"
+              aria-label="Close receipt"
+            >
+              ✕
+            </button>
+
             {/* Success Icon */}
             <div className="w-16 h-16 rounded-full bg-[#DF8435]/20 border border-[#DF8435] text-[#DF8435] text-3xl flex items-center justify-center mx-auto mb-4 animate-badge-pop">
               ✓
