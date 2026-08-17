@@ -35,31 +35,39 @@ A modern, responsive, and feature-packed web application designed for a luxury f
 - **Live Status Indicators**: Real-time service badges (*"OPEN"*, *"LATE NIGHT"*) with pulsing emerald status dots.
 - **Interactive Time Slot Rows**: Highlight and slide transition when hovering over operating hours.
 
-### 6. 💬 Guest Reviews & Live Statistics (`Reviews`)
+### 6. 🍷 Online Reservation & Table Booking System (`Reservation`)
+- **Party Size & Guest Selector**: Interactive guest chips (1 Person, 2 Guests, 4 Guests, 6+ VIP).
+- **Date & Time Slot Selector**: Formatted date selection with dinner service time slots (05:00 PM - 10:00 PM).
+- **Seating Zone Customization**: Choose between *Main Dining Hall*, *Garden Terrace*, *Chef's Counter*, and *VIP Private Lounge*.
+- **Special Occasion & Dietary Preferences**: Options for Anniversaries, Romantic Dates, Birthdays, Business Dinners, and allergy notes.
+- **Real-Time Booking Summary Card**: Live preview panel tracking selected table parameters, perks (*"🥂 Complimentary Welcome Aperitif & Amuse-Bouche"*), and live table availability status.
+- **Luxury Receipt Modal**: Instant booking confirmation modal with generated Reservation ID, guest breakdown, print/download receipt action, and calendar confirmation.
+
+### 7. 💬 Guest Reviews & Live Statistics (`Reviews`)
 - **Dynamic Animated Number Counters**: Smooth count-up counter that increments from 0 to live numbers (`1,287+ Visitors Daily`, `578+ Deliveries Monthly`, `1,440+ Positive Feedback`, `40+ Awards & Honors`) triggered via `IntersectionObserver` and `requestAnimationFrame`.
 - **Testimonial Cards**: Features customer feedback, rating stars with hover micro-animations, and floating quotation marks.
 - **Carousel Pagination**: Interactive pagination indicator dots with active pill expand animations.
 
-### 7. 🍕 Food Menu & Ordering (`Menu`)
+### 8. 🍕 Food Menu & Ordering (`Menu`)
 - **Gourmet Dishes Grid**: High-resolution dish showcases with prep time, serving size, and pricing.
 - **Floating Tag Badges**: Visual highlights such as *"🔥 Chef Special"*, *"⭐ Best Seller"*, and *"🌱 Fresh Organic"*.
 - **Shimmer "Order Now" Buttons**: Interactive buttons with light-sweep hover animations.
 
-### 8. 📱 Mobile App Download Banner (`AppDownload`)
+### 9. 📱 Mobile App Download Banner (`AppDownload`)
 - **Edge-to-Edge Responsive Banner**: Full-width promotional banner highlighting mobile ordering capabilities.
 - **App Store Download Buttons**: Styled download badges for Google Play and Apple App Store with spring lift and icon hover scaling.
 - **Floating Feature Pill**: Glass badge highlighting *"Fast Mobile App"*.
 
-### 9. 📩 Newsletter Subscription (`Newsletter`)
+### 10. 📩 Newsletter Subscription (`Newsletter`)
 - **Focus Glow Input**: Form input with glowing amber focus rings and backdrop blur.
 - **Animated Submission State**: Interactive loading spinner and checkmark confirmation banner upon subscription.
 
-### 10. 🏷️ Footer & Contact Section (`Footer`)
+### 11. 🏷️ Footer & Contact Section (`Footer`)
 - **Spring-Hover Social Icons**: Circular social buttons with spring elevation, slight rotation, and glowing amber halos.
 - **Sliding Arrow Links**: Navigation links with animated chevron indicators (`›`) appearing on hover.
 - **Opening Hours & Contact Details**: Formatted contact address, direct phone line, and operating times.
 
-### 11. 🔄 Global Micro-Interactions & Experience
+### 12. 🔄 Global Micro-Interactions & Experience
 - **Animated Moving Browser Tab Title**: Continuous marquee scroll effect in `document.title` displaying restaurant details, switching to a friendly reminder when the tab is blurred.
 - **Smart Back-to-Top Button**: Automatically appears when scrolled past 320px, featuring a continuous pulsing radar ring aura and smooth scroll-to-top trigger.
 - **GPU-Accelerated Design System**: High performance CSS using `transform`, `opacity`, and `will-change` to maintain a consistent 60 FPS across devices.
@@ -110,6 +118,7 @@ TasteNest-Food-Ordering-App/
 │   │       ├── About.jsx       # Story blocks with expanding lines & floating badges
 │   │       ├── WhyChooseUs.jsx # Feature highlights with 3D floating icons
 │   │       ├── WorkingHours.jsx# Operating hours with live status indicators
+│   │       ├── Reservation.jsx # Luxury table reservation & booking receipt modal
 │   │       ├── Reviews.jsx     # Testimonials & live count-up stats counter
 │   │       ├── AppDownload.jsx # Edge-to-edge mobile app banner
 │   │       ├── Menu.jsx        # Food dishes with pricing and order CTAs

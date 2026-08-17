@@ -9,6 +9,7 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import WhyChooseUs from './components/sections/WhyChooseUs';
 import WorkingHours from './components/sections/WorkingHours';
+import Reservation from './components/sections/Reservation';
 import Reviews from './components/sections/Reviews';
 import AppDownload from './components/sections/AppDownload';
 import Menu from './components/sections/Menu';
@@ -53,6 +54,7 @@ function App() {
       <About />         {/* Pages */}
       <WhyChooseUs />
       <WorkingHours />
+      <Reservation />   {/* Reservation Section */}
       <Reviews />       {/* Reviews & Statistics */}
       <AppDownload />   {/* Order Section placed directly next to Reviews */}
       <Menu />          {/* Menu */}
