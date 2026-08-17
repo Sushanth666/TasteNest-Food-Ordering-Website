@@ -98,13 +98,16 @@ export default function Footer() {
               <span className="w-1.5 h-1.5 rounded-full bg-[#DF8435]" />
               Working Hours
             </h4>
-            <ul className="space-y-2.5 text-xs text-gray-400 font-normal">
-              <li className="hover:text-gray-200 transition-colors">Monday: 09:00am - 08:00pm</li>
-              <li className="hover:text-gray-200 transition-colors">Tuesday: 09:00am - 08:00pm</li>
-              <li className="hover:text-gray-200 transition-colors">Wednesday: 09:00am - 08:00pm</li>
-              <li className="hover:text-gray-200 transition-colors">Thu - We: 09:00am - 10:00pm</li>
-              <li className="text-[#DF8435] font-semibold">Friday: Open for Special Events</li>
-            </ul>
+            <div className="space-y-3.5 text-xs font-normal">
+              <div>
+                <p className="text-white font-bold text-xs tracking-wide">Sunday to Tuesday</p>
+                <p className="text-gray-400 text-[11px] mt-0.5">09:00 AM – 10.00 PM</p>
+              </div>
+              <div>
+                <p className="text-white font-bold text-xs tracking-wide">Friday to Saturday</p>
+                <p className="text-gray-400 text-[11px] mt-0.5">09:00 AM – 10.00 PM</p>
+              </div>
+            </div>
           </div>
 
           {/* Column 3: User Link */}

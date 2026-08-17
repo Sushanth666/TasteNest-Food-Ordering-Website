@@ -82,46 +82,25 @@ export default function WorkingHours({ onOpenReservation, onOpenContact }) {
 
           {/* Right Column: Solid Dark Charcoal Card Overlay with Glowing Border */}
           <div className="lg:col-span-5 reveal-scale flex justify-start lg:justify-end">
-            <div className="bg-[#11181C]/95 backdrop-blur-md p-8 sm:p-10 md:p-12 rounded-2xl shadow-2xl border border-white/10 hover:border-[#DF8435]/40 transition-all duration-500 w-full max-w-md group">
+            <div className="bg-[#11181C]/95 backdrop-blur-md py-12 px-8 sm:px-12 rounded-2xl shadow-2xl border border-white/10 hover:border-[#DF8435]/40 transition-all duration-500 w-full max-w-md flex flex-col justify-center items-center text-center group">
               
-              {/* Header inside card */}
-              <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
-                <span className="text-xs font-bold tracking-widest uppercase text-[#DF8435] flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Service Schedule
-                </span>
-                <span className="text-[10px] text-gray-400 uppercase tracking-wider bg-white/5 px-2.5 py-1 rounded">
-                  All Week
-                </span>
-              </div>
-
               {/* Day Slot 1 */}
-              <div className="mb-6 p-4 rounded-xl bg-white/[0.03] hover:bg-[#DF8435]/10 border border-white/5 hover:border-[#DF8435]/30 transition-all duration-300 transform hover:translate-x-1">
-                <div className="flex justify-between items-center mb-1">
-                  <h3 className="text-white font-bold text-base sm:text-lg tracking-tight">
-                    Sunday to Tuesday
-                  </h3>
-                  <span className="text-[10px] font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">
-                    OPEN
-                  </span>
-                </div>
-                <p className="text-[#DF8435] text-xs font-semibold tracking-wider uppercase">
-                  09:00 AM – 10:00 PM
+              <div className="mb-10">
+                <h3 className="text-white font-bold text-lg sm:text-xl tracking-tight mb-2 font-sans">
+                  Sunday to Tuesday
+                </h3>
+                <p className="text-gray-300 text-sm sm:text-base font-normal tracking-wide">
+                  09:00 AM – 10.00 PM
                 </p>
               </div>
 
               {/* Day Slot 2 */}
-              <div className="p-4 rounded-xl bg-white/[0.03] hover:bg-[#DF8435]/10 border border-white/5 hover:border-[#DF8435]/30 transition-all duration-300 transform hover:translate-x-1">
-                <div className="flex justify-between items-center mb-1">
-                  <h3 className="text-white font-bold text-base sm:text-lg tracking-tight">
-                    Friday to Saturday
-                  </h3>
-                  <span className="text-[10px] font-bold text-[#DF8435] bg-[#DF8435]/10 px-2 py-0.5 rounded">
-                    LATE NIGHT
-                  </span>
-                </div>
-                <p className="text-[#DF8435] text-xs font-semibold tracking-wider uppercase">
-                  09:00 AM – 11:30 PM
+              <div>
+                <h3 className="text-white font-bold text-lg sm:text-xl tracking-tight mb-2 font-sans">
+                  Friday to Saturday
+                </h3>
+                <p className="text-gray-300 text-sm sm:text-base font-normal tracking-wide">
+                  09:00 AM – 10.00 PM
                 </p>
               </div>
 
