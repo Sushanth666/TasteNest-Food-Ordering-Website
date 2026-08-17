@@ -17,6 +17,7 @@ import Newsletter from './components/sections/Newsletter';
 // Modals
 import Reservation from './components/sections/Reservation';
 import OrderModal from './components/sections/OrderModal';
+import ContactModal from './components/sections/ContactModal';
 
 // Common
 import BackToTop from './components/common/BackToTop';
@@ -24,6 +25,7 @@ import BackToTop from './components/common/BackToTop';
 function App() {
   const [isReservationOpen, setIsReservationOpen] = useState(false);
   const [isOrderOpen, setIsOrderOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const [selectedOrderDish, setSelectedOrderDish] = useState(null);
 
   const openReservation = () => setIsReservationOpen(true);
@@ -37,6 +39,9 @@ function App() {
     setIsOrderOpen(false);
     setSelectedOrderDish(null);
   };
+
+  const openContact = () => setIsContactOpen(true);
+  const closeContact = () => setIsContactOpen(false);
 
   // Moving / Scrolling Marquee Animation for Browser Tab Title & Global Triggers
   useEffect(() => {
@@ -58,7 +63,7 @@ function App() {
       }
     };
 
-    // Catch any #reservation or #order anchor clicks globally
+    // Catch any #reservation, #order, or #contact anchor clicks globally
     const handleGlobalClick = (e) => {
       const resTarget = e.target.closest('a[href="#reservation"], [data-open-reservation]');
       if (resTarget) {
@@ -71,6 +76,16 @@ function App() {
       if (orderTarget) {
         e.preventDefault();
         openOrder();
+        return;
+      }
+
+      const contactTarget = e.target.closest('a[href="#contact"], [data-open-contact]');
+      if (contactTarget) {
+        // If user is clicking "Contact Us" buttons, open the contact modal
+        if (contactTarget.textContent.toLowerCase().includes('contact')) {
+          e.preventDefault();
+          openContact();
+        }
       }
     };
 
@@ -86,16 +101,26 @@ function App() {
 
   return (
     <div className="min-h-screen" style={{ background: '#0d0d0d' }}>
-      <Navbar onOpenReservation={openReservation} onOpenOrder={openOrder} />
+      <Navbar
+        onOpenReservation={openReservation}
+        onOpenOrder={openOrder}
+        onOpenContact={openContact}
+      />
       <Hero onOpenReservation={openReservation} />          {/* Home */}
       <About />                                             {/* Pages */}
       <WhyChooseUs />
-      <WorkingHours onOpenReservation={openReservation} />
+      <WorkingHours
+        onOpenReservation={openReservation}
+        onOpenContact={openContact}
+      />
       <Reviews />                                           {/* Reviews & Statistics */}
       <AppDownload onOpenOrder={openOrder} />               {/* Order Section */}
       <Menu onOpenOrder={openOrder} />                      {/* Menu */}
       <Newsletter />                                        {/* Shop */}
-      <Footer onOpenReservation={openReservation} />        {/* Contact */}
+      <Footer
+        onOpenReservation={openReservation}
+        onOpenContact={openContact}
+      />                                                    {/* Contact */}
 
       {/* Back to Top Floating Button */}
       <BackToTop />
@@ -105,6 +130,9 @@ function App() {
 
       {/* Gourmet Food Order Popup Modal */}
       <OrderModal isOpen={isOrderOpen} selectedDish={selectedOrderDish} onClose={closeOrder} />
+
+      {/* Contact & Concierge Inquiry Popup Modal */}
+      <ContactModal isOpen={isContactOpen} onClose={closeContact} />
     </div>
   );
 }

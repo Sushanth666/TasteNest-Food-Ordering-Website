@@ -65,10 +65,11 @@ A modern, responsive, and feature-packed web application designed for a luxury f
 - **Focus Glow Input**: Form input with glowing amber focus rings and backdrop blur.
 - **Animated Submission State**: Interactive loading spinner and checkmark confirmation banner upon subscription.
 
-### 11. 🏷️ Footer & Contact Section (`Footer`)
-- **Spring-Hover Social Icons**: Circular social buttons with spring elevation, slight rotation, and glowing amber halos.
-- **Sliding Arrow Links**: Navigation links with animated chevron indicators (`›`) appearing on hover.
-- **Opening Hours & Contact Details**: Formatted contact address, direct phone line, and operating times.
+### 11. 📞 Interactive Contact & Concierge Modal (`Footer` & `ContactModal`)
+- **Direct Concierge Channels**: Instant telephone hotline (+1257 6541120), direct email (reservations@tastenest.com), and restaurant street location.
+- **Inquiry Form**: Dropdown categories for General Inquiries, Private Dining & VIP Booths, Event & Wedding Catering, Masterclasses, and Feedback.
+- **Instant Message Confirmation**: Interactive loading feedback and confirmation receipt card.
+- **Global Triggers**: Accessible via the Footer "Contact Us" link, Navbar "Contact" link, and Working Hours "CONTACT US →" button.
 
 ### 12. 🔄 Global Micro-Interactions & Experience
 - **Animated Moving Browser Tab Title**: Continuous marquee scroll effect in `document.title` displaying restaurant details, switching to a friendly reminder when the tab is blurred.
@@ -126,6 +127,7 @@ TasteNest-Food-Ordering-App/
 │   │       ├── AppDownload.jsx # Edge-to-edge mobile app banner
 │   │       ├── Menu.jsx        # Food dishes with pricing and order CTAs
 │   │       ├── OrderModal.jsx  # Gourmet food order builder & live tracking receipt modal
+│   │       ├── ContactModal.jsx# Concierge inquiry & direct messaging modal popup
 │   │       └── Newsletter.jsx  # Interactive newsletter signup form
 │   ├── App.jsx                 # Main application component & moving title marquee
 │   ├── index.css               # Global styling, keyframes, and animation utilities

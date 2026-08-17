@@ -36,8 +36,10 @@ export default function Footer() {
       label: 'Instagram',
       href: '#',
       icon: (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
       ),
     },
@@ -58,30 +60,29 @@ export default function Footer() {
     <footer id="contact" className="bg-[#0B0E11] text-gray-400 border-t border-white/5 pt-16 pb-12 font-sans relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
-
-          {/* Column 1: Logo & Description */}
-          <div className="lg:col-span-4">
-            {/* Logo Image */}
-            <a href="#home" className="inline-block mb-5 transform hover:scale-105 transition-transform duration-300">
+          
+          {/* Column 1: Brand Info & Social Icons */}
+          <div className="lg:col-span-4 space-y-5">
+            <div className="flex items-center gap-3">
               <img
                 src="/logo.svg"
                 alt="TasteNest Logo"
-                className="h-12 md:h-14 w-auto object-contain"
+                className="h-10 w-auto object-contain drop-shadow"
               />
-            </a>
-
-            <p className="text-gray-400 text-xs leading-relaxed mb-6 font-normal max-w-xs">
-              TasteNest is committed to artisanal culinary mastery, exceptional coffee roasting, and world-class hospitality in every experience.
+            </div>
+            
+            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed font-normal max-w-sm">
+              Artisanal fine dining and specialty coffee house offering hand-crafted culinary recipes, farm-to-table ingredients, and luxury ambient hospitality.
             </p>
 
-            {/* Social Icons with Spring Hover & Glow */}
-            <div className="flex items-center gap-3">
+            {/* Social Icons with Spring-hover & Amber Glow */}
+            <div className="flex items-center gap-3 pt-2">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
-                  className="w-9 h-9 rounded-full bg-white text-[#DF8435] flex items-center justify-center hover:bg-[#DF8435] hover:text-white transition-all duration-300 shadow-md font-bold text-xs transform hover:-translate-y-1 hover:rotate-6 hover:shadow-[0_0_15px_rgba(223,132,53,0.7)]"
                   aria-label={s.label}
+                  className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#DF8435] text-gray-300 hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_15px_rgba(223,132,53,0.6)] hover:rotate-6 border border-white/5"
                 >
                   {s.icon}
                 </a>
@@ -89,14 +90,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Opening Restaurant */}
+          {/* Column 2: Working Hours */}
           <div className="lg:col-span-3">
             <h4 className="text-white font-bold text-sm tracking-wide mb-5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#DF8435]" />
-              Opening Restaurant
+              Working Hours
             </h4>
-            <ul className="space-y-3 text-xs text-gray-400 font-normal">
-              <li className="hover:text-gray-200 transition-colors">Sa - We: 09:00am - 10:00pm</li>
+            <ul className="space-y-2.5 text-xs text-gray-400 font-normal">
+              <li className="hover:text-gray-200 transition-colors">Monday: 09:00am - 08:00pm</li>
+              <li className="hover:text-gray-200 transition-colors">Tuesday: 09:00am - 08:00pm</li>
+              <li className="hover:text-gray-200 transition-colors">Wednesday: 09:00am - 08:00pm</li>
               <li className="hover:text-gray-200 transition-colors">Thu - We: 09:00am - 10:00pm</li>
               <li className="text-[#DF8435] font-semibold">Friday: Open for Special Events</li>
             </ul>
@@ -116,10 +119,16 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-[#DF8435] transition-all duration-200 inline-flex items-center gap-1 group">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (onOpenContact) onOpenContact();
+                  }}
+                  className="hover:text-[#DF8435] transition-all duration-200 inline-flex items-center gap-1 group cursor-pointer text-left"
+                >
                   <span className="opacity-0 group-hover:opacity-100 transform -translate-x-1 group-hover:translate-x-0 transition-all text-[#DF8435]">›</span>
                   Contact Us
-                </a>
+                </button>
               </li>
               <li>
                 <a href="#app-download" className="hover:text-[#DF8435] transition-all duration-200 inline-flex items-center gap-1 group">

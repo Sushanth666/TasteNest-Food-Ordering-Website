@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Contact', href: '#contact',      sectionId: 'contact' },
 ];
 
-export default function Navbar({ onOpenReservation, onOpenOrder }) {
+export default function Navbar({ onOpenReservation, onOpenOrder, onOpenContact }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Home');
@@ -57,6 +57,9 @@ export default function Navbar({ onOpenReservation, onOpenOrder }) {
     setActiveTab(link.label);
     if (link.label === 'Order' && onOpenOrder) {
       onOpenOrder();
+    }
+    if (link.label === 'Contact' && onOpenContact) {
+      onOpenContact();
     }
   };
 

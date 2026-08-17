@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function WorkingHours({ onOpenReservation }) {
+export default function WorkingHours({ onOpenReservation, onOpenContact }) {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -68,12 +68,15 @@ export default function WorkingHours({ onOpenReservation }) {
               >
                 BOOK A TABLE
               </button>
-              <a
-                href="#contact"
-                className="text-white hover:text-[#DF8435] font-bold text-xs uppercase tracking-widest px-4 py-3 transition-colors duration-300 transform hover:translate-x-1"
+              <button
+                type="button"
+                onClick={() => {
+                  if (onOpenContact) onOpenContact();
+                }}
+                className="text-white hover:text-[#DF8435] font-bold text-xs uppercase tracking-widest px-4 py-3 transition-colors duration-300 transform hover:translate-x-1 cursor-pointer"
               >
                 CONTACT US →
-              </a>
+              </button>
             </div>
           </div>
 
