@@ -48,10 +48,13 @@ A modern, responsive, and feature-packed web application designed for a luxury f
 - **Testimonial Cards**: Features customer feedback, rating stars with hover micro-animations, and floating quotation marks.
 - **Carousel Pagination**: Interactive pagination indicator dots with active pill expand animations.
 
-### 8. 🍕 Food Menu & Ordering (`Menu`)
+### 8. 🍕 Food Menu & Interactive Order Modal (`Menu` & `OrderModal`)
 - **Gourmet Dishes Grid**: High-resolution dish showcases with prep time, serving size, and pricing.
-- **Floating Tag Badges**: Visual highlights such as *"🔥 Chef Special"*, *"⭐ Best Seller"*, and *"🌱 Fresh Organic"*.
-- **Shimmer "Order Now" Buttons**: Interactive buttons with light-sweep hover animations.
+- **Interactive "Order Now" Popup Modal**: Clicking "Order Now" on any dish opens an exclusive ordering modal preloaded with the selected item.
+- **Customization & Gourmet Add-Ons**: Choose extras such as *Extra Aged Parmesan*, *Truffle Garlic Bread*, *Artisanal Iced Coffee*, or *House Smoked Chili Dip*.
+- **Delivery vs. Takeaway Toggle**: Switch between *Express Hot Delivery* (30-40 mins) and *Curbside Takeaway* (15-20 mins).
+- **Live Bill Breakdown**: Real-time pricing calculations for subtotal, quantity, add-ons, dynamic delivery fee (free over $30), and taxes.
+- **Live Order Progress Tracker Receipt**: Instant order confirmation with generated **Order ID** (`TN-ORD-XXXXXX`), estimated arrival countdown, and 3-step live kitchen status tracker.
 
 ### 9. 📱 Mobile App Download Banner (`AppDownload`)
 - **Edge-to-Edge Responsive Banner**: Full-width promotional banner highlighting mobile ordering capabilities.
@@ -122,6 +125,7 @@ TasteNest-Food-Ordering-App/
 │   │       ├── Reviews.jsx     # Testimonials & live count-up stats counter
 │   │       ├── AppDownload.jsx # Edge-to-edge mobile app banner
 │   │       ├── Menu.jsx        # Food dishes with pricing and order CTAs
+│   │       ├── OrderModal.jsx  # Gourmet food order builder & live tracking receipt modal
 │   │       └── Newsletter.jsx  # Interactive newsletter signup form
 │   ├── App.jsx                 # Main application component & moving title marquee
 │   ├── index.css               # Global styling, keyframes, and animation utilities

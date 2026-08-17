@@ -14,19 +14,31 @@ import AppDownload from './components/sections/AppDownload';
 import Menu from './components/sections/Menu';
 import Newsletter from './components/sections/Newsletter';
 
-// Reservation Modal Popup
+// Modals
 import Reservation from './components/sections/Reservation';
+import OrderModal from './components/sections/OrderModal';
 
 // Common
 import BackToTop from './components/common/BackToTop';
 
 function App() {
   const [isReservationOpen, setIsReservationOpen] = useState(false);
+  const [isOrderOpen, setIsOrderOpen] = useState(false);
+  const [selectedOrderDish, setSelectedOrderDish] = useState(null);
 
   const openReservation = () => setIsReservationOpen(true);
   const closeReservation = () => setIsReservationOpen(false);
 
-  // Moving / Scrolling Marquee Animation for Browser Tab Title & Global Reservation trigger
+  const openOrder = (dish = null) => {
+    setSelectedOrderDish(dish);
+    setIsOrderOpen(true);
+  };
+  const closeOrder = () => {
+    setIsOrderOpen(false);
+    setSelectedOrderDish(null);
+  };
+
+  // Moving / Scrolling Marquee Animation for Browser Tab Title & Global Triggers
   useEffect(() => {
     const fullText = '🍽️ TasteNest — Reserve Your Table | Artisanal Coffee & Gourmet Dining   ';
     let currentText = fullText;
@@ -46,12 +58,19 @@ function App() {
       }
     };
 
-    // Catch any #reservation anchor clicks globally to open the popup modal
+    // Catch any #reservation or #order anchor clicks globally
     const handleGlobalClick = (e) => {
-      const target = e.target.closest('a[href="#reservation"], [data-open-reservation]');
-      if (target) {
+      const resTarget = e.target.closest('a[href="#reservation"], [data-open-reservation]');
+      if (resTarget) {
         e.preventDefault();
         openReservation();
+        return;
+      }
+
+      const orderTarget = e.target.closest('a[href="#order"], [data-open-order]');
+      if (orderTarget) {
+        e.preventDefault();
+        openOrder();
       }
     };
 
@@ -67,22 +86,25 @@ function App() {
 
   return (
     <div className="min-h-screen" style={{ background: '#0d0d0d' }}>
-      <Navbar onOpenReservation={openReservation} />
+      <Navbar onOpenReservation={openReservation} onOpenOrder={openOrder} />
       <Hero onOpenReservation={openReservation} />          {/* Home */}
       <About />                                             {/* Pages */}
       <WhyChooseUs />
       <WorkingHours onOpenReservation={openReservation} />
       <Reviews />                                           {/* Reviews & Statistics */}
-      <AppDownload />                                       {/* Order Section */}
-      <Menu />                                              {/* Menu */}
+      <AppDownload onOpenOrder={openOrder} />               {/* Order Section */}
+      <Menu onOpenOrder={openOrder} />                      {/* Menu */}
       <Newsletter />                                        {/* Shop */}
-      <Footer />                                            {/* Contact */}
+      <Footer onOpenReservation={openReservation} />        {/* Contact */}
 
       {/* Back to Top Floating Button */}
       <BackToTop />
 
       {/* Luxury Reservation Popup Modal */}
       <Reservation isOpen={isReservationOpen} onClose={closeReservation} />
+
+      {/* Gourmet Food Order Popup Modal */}
+      <OrderModal isOpen={isOrderOpen} selectedDish={selectedOrderDish} onClose={closeOrder} />
     </div>
   );
 }

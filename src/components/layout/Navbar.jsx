@@ -5,13 +5,13 @@ const navLinks = [
   { label: 'Home',    href: '#home',         sectionId: 'home' },
   { label: 'Pages',   href: '#about',        sectionId: 'about' },
   { label: 'Blog',    href: '#reviews',      sectionId: 'reviews' },
-  { label: 'Order',   href: '#app-download', sectionId: 'app-download' },
+  { label: 'Order',   href: '#menu',         sectionId: 'menu' },
   { label: 'Menu',    href: '#menu',         sectionId: 'menu' },
   { label: 'Shop',    href: '#newsletter',   sectionId: 'newsletter' },
   { label: 'Contact', href: '#contact',      sectionId: 'contact' },
 ];
 
-export default function Navbar({ onOpenReservation }) {
+export default function Navbar({ onOpenReservation, onOpenOrder }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Home');
@@ -26,17 +26,16 @@ export default function Navbar({ onOpenReservation }) {
   // Scroll-spy: auto-update active tab based on which section is visible
   useEffect(() => {
     const sectionEls = navLinks
-      .map(link => ({ label: link.label, el: document.getElementById(link.sectionId) }))
-      .filter(item => item.el);
+      .map((link) => ({ label: link.label, el: document.getElementById(link.sectionId) }))
+      .filter((item) => item.el);
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // Find the entry that is intersecting and has the highest ratio
         const visible = entries
-          .filter(e => e.isIntersecting)
+          .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
         if (visible.length > 0) {
-          const matched = sectionEls.find(s => s.el === visible[0].target);
+          const matched = sectionEls.find((s) => s.el === visible[0].target);
           if (matched) setActiveTab(matched.label);
         }
       },
@@ -49,8 +48,17 @@ export default function Navbar({ onOpenReservation }) {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [mobileOpen]);
+
+  const handleNavClick = (link) => {
+    setActiveTab(link.label);
+    if (link.label === 'Order' && onOpenOrder) {
+      onOpenOrder();
+    }
+  };
 
   return (
     <>
@@ -74,7 +82,7 @@ export default function Navbar({ onOpenReservation }) {
                   <a
                     key={link.label}
                     href={link.href}
-                    onClick={() => setActiveTab(link.label)}
+                    onClick={() => handleNavClick(link)}
                     className={`nav-link text-xs lg:text-sm uppercase tracking-wider font-semibold py-2 px-3 lg:px-4 rounded transition-all duration-200 relative ${
                       isActive ? 'active text-[#DF8435]' : 'text-gray-300 hover:text-white'
                     }`}
@@ -147,7 +155,7 @@ export default function Navbar({ onOpenReservation }) {
               style={{ transitionDelay: `${idx * 40}ms` }}
               className="mobile-nav-link transform hover:translate-x-2 transition-all duration-200"
               onClick={() => {
-                setActiveTab(link.label);
+                handleNavClick(link);
                 setMobileOpen(false);
               }}
             >

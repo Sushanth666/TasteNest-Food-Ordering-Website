@@ -36,7 +36,7 @@ const menuItems = [
   },
 ];
 
-export default function Menu() {
+export default function Menu({ onOpenOrder }) {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -128,12 +128,17 @@ export default function Menu() {
                     </span>
                   </div>
 
-                  <a
-                    href="#order"
-                    className="btn-shimmer bg-[#DF8435] hover:bg-[#c97129] text-white font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-[3px] transition-all duration-300 shadow-[0_4px_12px_rgba(223,132,53,0.3)] hover:shadow-[0_6px_20px_rgba(223,132,53,0.5)] transform hover:-translate-y-0.5 active:scale-95"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (onOpenOrder) {
+                        onOpenOrder(item);
+                      }
+                    }}
+                    className="btn-shimmer bg-[#DF8435] hover:bg-[#c97129] text-white font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-[3px] transition-all duration-300 shadow-[0_4px_12px_rgba(223,132,53,0.3)] hover:shadow-[0_6px_20px_rgba(223,132,53,0.5)] transform hover:-translate-y-0.5 active:scale-95 cursor-pointer"
                   >
                     Order Now
-                  </a>
+                  </button>
                 </div>
               </div>
 
