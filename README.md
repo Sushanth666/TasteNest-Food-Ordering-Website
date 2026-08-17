@@ -145,7 +145,7 @@ npm install
 ```bash
 npm run dev
 ```
-Open [http://localhost:5173/](http://localhost:5173/) in your browser to explore the live application.
+Open [https://taste-nest-food-ordering-website.vercel.app/](https://taste-nest-food-ordering-website.vercel.app/) in your browser to explore the live application.
 
 ### 4. Build for Production
 ```bash
