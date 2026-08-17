@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Contact', href: '#contact',      sectionId: 'contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onOpenReservation }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Home');
@@ -58,16 +58,16 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center justify-between h-20 md:h-24">
             {/* Logo with smooth hover float & glow */}
-            <a href="#home" className="flex items-center group py-2 transition-transform duration-300 hover:scale-105">
+            <a href="#home" className="flex items-center gap-3 group">
               <img
                 src="/logo.svg"
                 alt="TasteNest Logo"
-                className="h-14 md:h-16 w-auto object-contain drop-shadow-md transition-all duration-300 group-hover:brightness-110"
+                className="h-10 md:h-12 w-auto object-contain transform group-hover:scale-105 transition-transform duration-300"
               />
             </a>
 
-            {/* Desktop Nav Links */}
-            <div className="hidden md:flex items-center gap-8">
+            {/* Desktop Navigation Links with animated active bar */}
+            <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
               {navLinks.map((link) => {
                 const isActive = activeTab === link.label;
                 return (
@@ -75,15 +75,13 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href}
                     onClick={() => setActiveTab(link.label)}
-                    className={`relative py-1 text-sm md:text-[15px] font-medium tracking-wide transition-all duration-300 ${
-                      isActive ? 'text-white font-semibold transform -translate-y-0.5' : 'text-gray-300 hover:text-white hover:-translate-y-0.5'
+                    className={`nav-link text-xs lg:text-sm uppercase tracking-wider font-semibold py-2 px-3 lg:px-4 rounded transition-all duration-200 relative ${
+                      isActive ? 'active text-[#DF8435]' : 'text-gray-300 hover:text-white'
                     }`}
                   >
                     {link.label}
-                    {isActive ? (
-                      <span className="absolute -bottom-2 left-0 w-full h-[2.5px] bg-gradient-to-r from-[#DF8435] to-[#f0a500] rounded-full shadow-[0_0_8px_rgba(223,132,53,0.8)] transition-all duration-300" />
-                    ) : (
-                      <span className="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-[#DF8435] rounded-full transition-all duration-300 group-hover:w-full group-hover:left-0" />
+                    {isActive && (
+                      <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-[#DF8435] to-[#f0a500] rounded-full" />
                     )}
                   </a>
                 );
@@ -92,12 +90,13 @@ export default function Navbar() {
 
             {/* RESERVATION Button with Shimmer and Pulse Glow on Hover */}
             <div className="hidden md:flex items-center">
-              <a
-                href="#reservation"
-                className="btn-shimmer bg-gradient-to-r from-[#DF8435] to-[#c97129] hover:from-[#e28c3d] hover:to-[#df8435] text-white font-bold text-xs md:text-sm uppercase tracking-widest px-7 py-3 rounded-md transition-all duration-300 shadow-[0_4px_16px_rgba(223,132,53,0.35)] hover:shadow-[0_6px_25px_rgba(223,132,53,0.6)] transform hover:-translate-y-0.5 active:scale-95"
+              <button
+                type="button"
+                onClick={onOpenReservation}
+                className="btn-shimmer bg-gradient-to-r from-[#DF8435] to-[#c97129] hover:from-[#e28c3d] hover:to-[#df8435] text-white font-bold text-xs md:text-sm uppercase tracking-widest px-7 py-3 rounded-md transition-all duration-300 shadow-[0_4px_16px_rgba(223,132,53,0.35)] hover:shadow-[0_6px_25px_rgba(223,132,53,0.6)] transform hover:-translate-y-0.5 active:scale-95 cursor-pointer"
               >
                 RESERVATION
-              </a>
+              </button>
             </div>
 
             {/* Mobile Hamburger */}
@@ -133,7 +132,7 @@ export default function Navbar() {
           </div>
           <button
             onClick={() => setMobileOpen(false)}
-            className="text-gray-400 hover:text-white transition-transform duration-200 hover:rotate-90 text-2xl leading-none"
+            className="text-gray-400 hover:text-white transition-transform duration-200 hover:rotate-90 text-2xl leading-none cursor-pointer"
             aria-label="Close menu"
           >
             ✕
@@ -158,16 +157,18 @@ export default function Navbar() {
         </nav>
 
         <div className="mt-8 flex flex-col gap-3">
-          <a
-            href="#reservation"
-            className="btn-shimmer bg-[#DF8435] text-white text-center font-bold text-sm uppercase py-3.5 rounded-md shadow-lg transform hover:-translate-y-0.5 active:scale-95 transition-all"
-            onClick={() => setMobileOpen(false)}
+          <button
+            type="button"
+            className="btn-shimmer bg-[#DF8435] text-white text-center font-bold text-sm uppercase py-3.5 rounded-md shadow-lg transform hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer"
+            onClick={() => {
+              setMobileOpen(false);
+              if (onOpenReservation) onOpenReservation();
+            }}
           >
             RESERVATION
-          </a>
+          </button>
         </div>
       </div>
     </>
   );
 }
-

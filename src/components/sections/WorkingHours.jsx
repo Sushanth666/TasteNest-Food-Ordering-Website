@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function WorkingHours() {
+export default function WorkingHours({ onOpenReservation }) {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -61,12 +61,13 @@ export default function WorkingHours() {
 
             {/* Buttons Row */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-              <a
-                href="#reservation"
-                className="btn-shimmer bg-[#DF8435] hover:bg-[#c97129] text-white font-bold text-xs uppercase tracking-widest px-7 py-3 rounded-[3px] transition-all duration-300 shadow-[0_4px_16px_rgba(223,132,53,0.35)] hover:shadow-[0_8px_25px_rgba(223,132,53,0.55)] transform hover:-translate-y-0.5 active:scale-95"
+              <button
+                type="button"
+                onClick={onOpenReservation}
+                className="btn-shimmer bg-[#DF8435] hover:bg-[#c97129] text-white font-bold text-xs uppercase tracking-widest px-7 py-3 rounded-[3px] transition-all duration-300 shadow-[0_4px_16px_rgba(223,132,53,0.35)] hover:shadow-[0_8px_25px_rgba(223,132,53,0.55)] transform hover:-translate-y-0.5 active:scale-95 cursor-pointer"
               >
                 BOOK A TABLE
-              </a>
+              </button>
               <a
                 href="#contact"
                 className="text-white hover:text-[#DF8435] font-bold text-xs uppercase tracking-widest px-4 py-3 transition-colors duration-300 transform hover:translate-x-1"

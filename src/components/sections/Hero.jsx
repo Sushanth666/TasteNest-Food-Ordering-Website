@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function Hero() {
+export default function Hero({ onOpenReservation }) {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -55,12 +55,13 @@ export default function Hero() {
 
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 reveal">
-          <a
-            href="#reservation"
-            className="btn-shimmer border-2 border-white/90 hover:border-[#DF8435] bg-transparent hover:bg-[#DF8435] text-white font-bold text-xs sm:text-sm uppercase tracking-[0.18em] px-8 py-3.5 rounded transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_30px_rgba(223,132,53,0.5)] transform hover:-translate-y-1 active:scale-95"
+          <button
+            type="button"
+            onClick={onOpenReservation}
+            className="btn-shimmer border-2 border-white/90 hover:border-[#DF8435] bg-transparent hover:bg-[#DF8435] text-white font-bold text-xs sm:text-sm uppercase tracking-[0.18em] px-8 py-3.5 rounded transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_8px_30px_rgba(223,132,53,0.5)] transform hover:-translate-y-1 active:scale-95 cursor-pointer"
           >
             BOOK A TABLE
-          </a>
+          </button>
           <a
             href="#menu"
             className="border-2 border-transparent hover:border-white/20 hover:bg-white/10 text-white hover:text-[#DF8435] font-bold text-xs sm:text-sm uppercase tracking-[0.18em] px-6 py-3.5 rounded transition-all duration-300 transform hover:-translate-y-0.5"
